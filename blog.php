@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/Post.class.php';
+require_once 'models/Post.class.php';
 
 $post1 = new Post(
     1,
@@ -28,11 +28,17 @@ $post2 = new Post(
     'Il y a 9 jour'
 );
 
+require_once 'models/PostManager.class.php';
+
+$postManager = new PostManager();
+$postManager->addPost($post1);
+$postManager->addPost($post2);
+
 ob_start(); ?>
 
 <h1>Blog</h1>
 
-<?php foreach (Post::$posts as $post){ ?>
+<?php foreach ($postManager->getPosts() as $post){ ?>
 
 <div class="card mb-3">
     <a href="#" class="post text-body text-decoration-none">

@@ -10,7 +10,7 @@ class Post
     private $content;
     private $date;
 
-    public static $posts;
+    // public static $posts;
 
     public function __construct($id, $header, $title, $author, $image, $content, $date)
     {
@@ -21,7 +21,7 @@ class Post
         $this->image = $image;
         $this->content = $content;
         $this->date = $date;
-        self::$posts[] = $this;
+        // self::$posts[] = $this;
     }
 
     public function getId()
