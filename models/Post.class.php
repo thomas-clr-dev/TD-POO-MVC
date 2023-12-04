@@ -7,19 +7,19 @@ class Post
     private $title;
     private $author;
     private $image;
-    private $content;
+    private $body;
     private $date;
 
     // public static $posts;
 
-    public function __construct($id, $header, $title, $author, $image, $content, $date)
+    public function __construct($id, $header, $title, $author, $image, $body, $date)
     {
         $this->id = $id;
         $this->header = $header;
         $this->title = $title;
         $this->author = $author;
         $this->image = $image;
-        $this->content = $content;
+        $this->body = $body;
         $this->date = $date;
         // self::$posts[] = $this;
     }
@@ -77,16 +77,16 @@ class Post
         $this->image = $image;
     }
 
-    //CONTENT//
+    //body//
 
-    public function getContent()
+    public function getbody()
     {
-        return $this->content;
+        return $this->body;
     }
 
-    public function setContent($content)
+    public function setbody($body)
     {
-        $this->content = $content;
+        $this->body = $body;
     }
 
     //DATE//

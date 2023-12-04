@@ -18,9 +18,8 @@ class PostManager extends Model{
         $req = $this->getBdd()->prepare('SELECT * FROM posts');
         $req->execute();
         $posts = $req->fetchAll(PDO::FETCH_ASSOC);
-        print_r($posts);
         foreach($posts as $post){
-            $this->addPost(new Post($post['id'], $post['header'], $post['title'], $post['author'], $post['image'], $post['content'], $post['date']));
+            $this->addPost(new Post($post['id'], $post['header'], $post['title'], $post['author'], $post['image'], $post['body'], $post['date']));
         }
     }
 }

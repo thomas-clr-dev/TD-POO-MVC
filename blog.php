@@ -2,37 +2,10 @@
 
 require_once 'models/Post.class.php';
 
-$post1 = new Post(
-    1,
-    'Les nouvelles les plus étranges de la semaine',
-    'Avec des extraterrestres, des pingouins et des poissons-rouges',
-    'Par Professeur Zorglub',
-    'https://picsum.photos/319/180',
-    'Des chercheurs découvrent que les chats peuvent communiquer en morse.
-    Une ville construite entièrement en bonbons attire des milliers de visiteurs.
-    Un homme se réveille après 10 ans de coma et découvre que sa femme l\'a quitté pour un extraterrestre.
-    Un poisson-rouge se fait passer pour un requin et terrorise les autres poissons.
-    Un pingouin est arrêté en état d\'ivresse dans un bar de Bretagne.',
-    'Il y a 1 jour'
-);
-
-$post2 = new Post(
-    2,
-    'Les nouvelles du monde, ce qui s\'est passé cette semaine',
-    'Des marins à la dérive, des pirates et des naufragés',
-    'Capitaine Haddock',
-    'https://picsum.photos/318/180',
-    'Des marins se sont échoués sur une île déserte.
-    Des pirates ont attaqué un navire de croisière.
-    Un naufragé a été retrouvé sur une île déserte.',
-    'Il y a 9 jour'
-);
-
 require_once 'models/PostManager.class.php';
 
 $postManager = new PostManager();
-$postManager->addPost($post1);
-$postManager->addPost($post2);
+$postManager->getPostFromDb();
 
 ob_start(); ?>
 
@@ -52,7 +25,7 @@ ob_start(); ?>
         <div class="card-body">
             <p class="card-text">
                 <?php
-                $body = $post->getContent();
+                $body = $post->getbody();
                 $body = str_replace("\n", '<br>', $body);
                 echo $body;
                 ?>
